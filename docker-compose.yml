@@ -1,0 +1,10 @@
+services:
+  fiesta-db:
+    image: arm64v8/postgres
+    container_name: expert-fiesta-postgres
+    environment:
+      POSTGRES_USER: fiesta_admin
+      POSTGRES_PASSWORD: fiesta_admin_password
+      POSTGRES_DB: expert_fiesta
+    ports:
+      - "5433:5432"
