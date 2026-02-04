@@ -1,3 +1,9 @@
 <Solution>
+  <Folder Name="/SolutionItems/">
+    <File Path=".gitignore" />
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Project Path="expert-fiesta.API/expert-fiesta.API.csproj" />
+  <Project Path="expert-fiesta.Application/expert-fiesta.Application.csproj" />
+  <Project Path="expert-fiesta.Contracts/expert-fiesta.Contracts.csproj" />
 </Solution>
