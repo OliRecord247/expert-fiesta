@@ -36,16 +36,26 @@ public class GameRepository : IGameRepository
 
     public async Task<bool> UpdateAsync(Game game, CancellationToken cancellationToken = default)
     {
-        _context.Games.Update(game);
-        var result = await _context.SaveChangesAsync(cancellationToken);
-        return result > 0;
+        var exitingGame = await _context.Games.FindAsync([game.Id], cancellationToken);
+        if (exitingGame is null) return false;
+        
+        exitingGame.Name = game.Name;
+        exitingGame.Description = game.Description;
+        exitingGame.ReleaseDate = game.ReleaseDate;
+        exitingGame.PlayHours = game.PlayHours;
+        
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
     }
 
     public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        _context.Games.Remove(new Game { Id = id });
-        var result =await _context.SaveChangesAsync(cancellationToken);
-        return result > 0;
+        var game = await _context.Games.FindAsync([id], cancellationToken);
+        if (game is null) return false;
+        
+        _context.Games.Remove(game);
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
     }
 
     public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken = default)
