@@ -1,6 +1,7 @@
 ﻿using expert_fiesta.Application.Data;
 using expert_fiesta.Application.Repositories;
 using expert_fiesta.Application.Services;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +13,7 @@ public static class ApplicationServiceCollection
     {
         services.AddScoped<IGameRepository, GameRepository>();
         services.AddScoped<IGameService, GameService>();
+        services.AddValidatorsFromAssemblyContaining<IApplicationMarker>();
         return services;
     }
 
