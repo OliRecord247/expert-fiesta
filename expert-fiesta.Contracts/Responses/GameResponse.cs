@@ -6,5 +6,5 @@ public class GameResponse
     public string Name { get; init; }
     public string Description { get; init; }
     public int PlayHours { get; init; }
-    public DateOnly ReleaseDate { get; init; }
+    public string ReleaseDate { get; init; }
 }

@@ -1,4 +1,5 @@
-﻿using expert_fiesta.Application.Domain;
+﻿using System.Globalization;
+using expert_fiesta.Application.Domain;
 using expert_fiesta.Contracts.Requests;
 using expert_fiesta.Contracts.Responses;
 
@@ -6,13 +7,17 @@ namespace expert_fiesta.API.Mapping;
 
 public static class ContractMapping
 {
+    private const string DateFormat = "yyyy-MM-dd";
+    
     public static Game MapToGame(this CreateGameRequest request)
     {
+        DateOnly.TryParse(request.ReleaseDate, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate);
         return new Game
         {
+            Id = Guid.NewGuid(),
             Name = request.Name,
             Description = request.Description,
-            ReleaseDate = request.ReleaseDate,
+            ReleaseDate = parsedDate == default ? null : parsedDate,
             PlayHours = request.PlayHours
         };
     }
@@ -37,7 +42,8 @@ public static class ContractMapping
             Name = game.Name,
             Description = game.Description,
             PlayHours = game.PlayHours,
-            ReleaseDate = game.ReleaseDate,
+            ReleaseDate = game.ReleaseDate?.ToString(DateFormat, CultureInfo.InvariantCulture) 
+                          ?? string.Empty,
         };
     }
 

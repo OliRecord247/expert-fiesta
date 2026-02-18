@@ -25,11 +25,10 @@ public class GameMapping : IEntityTypeConfiguration<Game>
         builder
             .Property(g => g.PlayHours)
             .HasDefaultValue(2);
-        
+
         builder
             .Property(g => g.ReleaseDate)
             .HasColumnType("character(8)")
-            .HasConversion(new DateConverter())
-            .IsRequired();
+            .HasConversion(new DateConverter());
     }
 }
