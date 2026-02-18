@@ -11,7 +11,7 @@ public static class ContractMapping
     
     public static Game MapToGame(this CreateGameRequest request)
     {
-        DateOnly.TryParse(request.ReleaseDate, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDate);
+        DateOnly.TryParse(request.ReleaseDate, CultureInfo.InvariantCulture, out var parsedDate);
         return new Game
         {
             Id = Guid.NewGuid(),
@@ -24,12 +24,13 @@ public static class ContractMapping
     
     public static Game MapToGame(this UpdateGameRequest request, Guid id)
     {
+        DateOnly.TryParse(request.ReleaseDate, CultureInfo.InvariantCulture, out var parsedDate);
         return new Game
         {
             Id = id,
             Name = request.Name,
             Description = request.Description,
-            ReleaseDate = request.ReleaseDate,
+            ReleaseDate = parsedDate == default ? null : parsedDate,
             PlayHours = request.PlayHours
         };
     }
@@ -42,8 +43,7 @@ public static class ContractMapping
             Name = game.Name,
             Description = game.Description,
             PlayHours = game.PlayHours,
-            ReleaseDate = game.ReleaseDate?.ToString(DateFormat, CultureInfo.InvariantCulture) 
-                          ?? string.Empty,
+            ReleaseDate = game.ReleaseDate?.ToString(DateFormat, CultureInfo.InvariantCulture)
         };
     }
 
