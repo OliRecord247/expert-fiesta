@@ -10,7 +10,7 @@ public class GameMapping : IEntityTypeConfiguration<Game>
     public void Configure(EntityTypeBuilder<Game> builder)
     {
         builder
-            .ToTable("Games")
+            .ToTable("games")
             .HasKey(g => g.Id);
 
         builder

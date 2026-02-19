@@ -21,7 +21,8 @@ public static class ApplicationServiceCollection
     {
         services.AddDbContext<ApplicationDbContext>(context =>
         {
-            context.UseNpgsql(connectionString);
+            context.UseNpgsql(connectionString)
+                .UseSnakeCaseNamingConvention();
         }, ServiceLifetime.Scoped, ServiceLifetime.Singleton);
         return services;
     }

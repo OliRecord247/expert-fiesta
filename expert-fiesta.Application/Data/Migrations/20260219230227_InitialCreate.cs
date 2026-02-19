@@ -12,18 +12,18 @@ namespace expert_fiesta.Application.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Games",
+                name: "games",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
-                    Description = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
-                    ReleaseDate = table.Column<string>(type: "character(8)", nullable: false),
-                    PlayHours = table.Column<int>(type: "integer", nullable: false, defaultValue: 2)
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    name = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    description = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
+                    release_date = table.Column<string>(type: "character(8)", nullable: true),
+                    play_hours = table.Column<int>(type: "integer", nullable: false, defaultValue: 2)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Games", x => x.Id);
+                    table.PrimaryKey("pk_games", x => x.id);
                 });
         }
 
@@ -31,7 +31,7 @@ namespace expert_fiesta.Application.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Games");
+                name: "games");
         }
     }
 }
