@@ -12,7 +12,7 @@ using expert_fiesta.Application.Data;
 namespace expert_fiesta.Application.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260203141158_InitialCreate")]
+    [Migration("20260219230227_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -29,30 +29,35 @@ namespace expert_fiesta.Application.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
+                        .HasColumnType("character varying(255)")
+                        .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("name");
 
                     b.Property<int>("PlayHours")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasDefaultValue(2);
+                        .HasDefaultValue(2)
+                        .HasColumnName("play_hours");
 
                     b.Property<string>("ReleaseDate")
-                        .IsRequired()
-                        .HasColumnType("character(8)");
+                        .HasColumnType("character(8)")
+                        .HasColumnName("release_date");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_games");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("games", (string)null);
                 });
 #pragma warning restore 612, 618
         }
