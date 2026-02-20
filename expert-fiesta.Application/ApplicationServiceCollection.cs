@@ -1,7 +1,9 @@
 ﻿using expert_fiesta.Application.Data;
+using expert_fiesta.Application.Domain;
 using expert_fiesta.Application.Repositories;
 using expert_fiesta.Application.Services;
 using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,6 +26,16 @@ public static class ApplicationServiceCollection
             context.UseNpgsql(connectionString)
                 .UseSnakeCaseNamingConvention();
         }, ServiceLifetime.Scoped, ServiceLifetime.Singleton);
+        return services;
+    }
+
+    public static IServiceCollection AddIdentity(this IServiceCollection services)
+    {
+        services.AddIdentityCore<ApplicationUser>()
+            .AddRoles<IdentityRole>()
+            .AddRoleManager<RoleManager<IdentityRole>>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+        
         return services;
     }
 }

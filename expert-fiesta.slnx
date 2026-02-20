@@ -6,4 +6,5 @@
   <Project Path="expert-fiesta.API/expert-fiesta.API.csproj" />
   <Project Path="expert-fiesta.Application/expert-fiesta.Application.csproj" />
   <Project Path="expert-fiesta.Contracts/expert-fiesta.Contracts.csproj" />
+  <Project Path="expert-fiesta.Identity/expert-fiesta.Identity.csproj" />
 </Solution>

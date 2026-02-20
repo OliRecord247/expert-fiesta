@@ -1,0 +1,6 @@
+@expert_fiesta.Identity_HostAddress = http://localhost:5069
+
+GET {{expert_fiesta.Identity_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
