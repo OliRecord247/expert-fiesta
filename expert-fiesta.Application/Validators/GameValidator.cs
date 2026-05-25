@@ -1,4 +1,4 @@
-﻿using expert_fiesta.Application.Domain;
+﻿using expert_fiesta.Domain;
 using FluentValidation;
 
 namespace expert_fiesta.Application.Validators;

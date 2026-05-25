@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using expert_fiesta.Application.Domain;
 using expert_fiesta.Contracts.Requests;
 using expert_fiesta.Contracts.Responses;
+using expert_fiesta.Domain;
 
 namespace expert_fiesta.API.Mapping;
 

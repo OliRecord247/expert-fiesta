@@ -1,4 +1,4 @@
-﻿using expert_fiesta.Application.Data;
+﻿using expert_fiesta.Infrastructure.Data;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace expert_fiesta.API.Health;

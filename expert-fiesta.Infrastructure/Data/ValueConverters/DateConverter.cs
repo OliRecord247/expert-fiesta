@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace expert_fiesta.Application.Data.ValueConverters;
+namespace expert_fiesta.Infrastructure.Data.ValueConverters;
 
 public class DateConverter : ValueConverter<DateOnly, string>
 {
