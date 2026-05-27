@@ -23,8 +23,4 @@
       <ProjectReference Include="..\expert-fiesta.Domain\expert-fiesta.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Data\Migrations\" />
-    </ItemGroup>
-
 </Project>
