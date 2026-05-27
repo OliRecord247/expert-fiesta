@@ -1,4 +1,5 @@
 using expert_fiesta.API.Features.Games;
+using expert_fiesta.API.Features.Users;
 using expert_fiesta.API.Health;
 using expert_fiesta.API.Mapping;
 using expert_fiesta.Application;
@@ -10,8 +11,8 @@ var config = builder.Configuration;
 
 builder.Services.AddOpenApi();
 
-builder.Services.AddApplication();
 builder.Services.AddInfrastructure(config["Database:ConnectionString"]!);
+builder.Services.AddApplication();
 builder.Services.AddHealthChecks()
     .AddCheck<DatabaseHealthCheck>(DatabaseHealthCheck.Name);
 
@@ -42,5 +43,6 @@ app.UseHttpsRedirection();
 app.UseCors();
 app.UseMiddleware<ValidationMappingMiddleware>();
 app.UseGameEndpoints();
+app.UseUserEndpoints();
 
 app.Run();
