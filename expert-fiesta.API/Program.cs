@@ -1,5 +1,5 @@
+using expert_fiesta.API.Features.Customers;
 using expert_fiesta.API.Features.Games;
-using expert_fiesta.API.Features.Users;
 using expert_fiesta.API.Health;
 using expert_fiesta.API.Mapping;
 using expert_fiesta.Application;
@@ -43,6 +43,6 @@ app.UseHttpsRedirection();
 app.UseCors();
 app.UseMiddleware<ValidationMappingMiddleware>();
 app.UseGameEndpoints();
-app.UseUserEndpoints();
+app.UseCustomerEndpoints();
 
 app.Run();

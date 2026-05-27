@@ -1,11 +1,11 @@
 ﻿using expert_fiesta.Application.Customers.CreateCustomer;
 using MediatR;
 
-namespace expert_fiesta.API.Features.Users;
+namespace expert_fiesta.API.Features.Customers;
 
-public static class UserEndpoints
+public static class CustomerEndpoints
 {
-    public static void UseUserEndpoints(this IEndpointRouteBuilder app)
+    public static void UseCustomerEndpoints(this IEndpointRouteBuilder app)
     {
         app.MapPost("/users", async (CreateCustomerCommand command,
             IMediator mediator,
