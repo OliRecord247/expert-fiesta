@@ -1,4 +1,5 @@
 ﻿using expert_fiesta.Domain;
+using expert_fiesta.Domain.Exceptions;
 using expert_fiesta.Domain.IRepositories;
 using MediatR;
 
@@ -20,7 +21,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
         var emailExists = await _repository.ExistsByEmailAsync(request.Email, cancellationToken);
         if (emailExists)
         {
-            throw new Exception($"Een klant met het e-mailadres {request.Email} bestaat al.");
+            throw new EmailAlreadyExistsException(request.Email);
         }
         
         var customer = new Customer
