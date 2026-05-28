@@ -1,8 +1,5 @@
-﻿using expert_fiesta.Application.Data;
-using expert_fiesta.Application.Repositories;
-using expert_fiesta.Application.Services;
+﻿using expert_fiesta.Application.Services;
 using FluentValidation;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace expert_fiesta.Application;
@@ -11,18 +8,12 @@ public static class ApplicationServiceCollection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IGameRepository, GameRepository>();
         services.AddScoped<IGameService, GameService>();
-        services.AddValidatorsFromAssemblyContaining<IApplicationMarker>();
-        return services;
-    }
-
-    public static IServiceCollection AddDatabase(this IServiceCollection services, string connectionString)
-    {
-        services.AddDbContext<ApplicationDbContext>(context =>
+        services.AddMediatR(cfg => 
         {
-            context.UseNpgsql(connectionString);
-        }, ServiceLifetime.Scoped, ServiceLifetime.Singleton);
+            cfg.RegisterServicesFromAssembly(typeof(IApplicationMarker).Assembly);
+        });
+        services.AddValidatorsFromAssemblyContaining<IApplicationMarker>();
         return services;
     }
 }

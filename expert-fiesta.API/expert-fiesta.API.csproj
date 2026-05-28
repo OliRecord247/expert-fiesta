@@ -9,8 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="14.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -20,6 +21,7 @@
     <ItemGroup>
       <ProjectReference Include="..\expert-fiesta.Application\expert-fiesta.Application.csproj" />
       <ProjectReference Include="..\expert-fiesta.Contracts\expert-fiesta.Contracts.csproj" />
+      <ProjectReference Include="..\expert-fiesta.Infrastructure\expert-fiesta.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

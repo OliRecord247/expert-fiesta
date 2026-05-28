@@ -1,8 +1,9 @@
-﻿using expert_fiesta.Application.Data;
-using expert_fiesta.Application.Domain;
+﻿using expert_fiesta.Domain;
+using expert_fiesta.Domain.IRepositories;
+using expert_fiesta.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace expert_fiesta.Application.Repositories;
+namespace expert_fiesta.Infrastructure.Repositories;
 
 public class GameRepository : IGameRepository
 {

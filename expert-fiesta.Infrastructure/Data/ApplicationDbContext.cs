@@ -1,8 +1,8 @@
-﻿using expert_fiesta.Application.Data.EntityMapping;
-using expert_fiesta.Application.Domain;
+﻿using expert_fiesta.Domain;
+using expert_fiesta.Infrastructure.Data.EntityMapping;
 using Microsoft.EntityFrameworkCore;
 
-namespace expert_fiesta.Application.Data;
+namespace expert_fiesta.Infrastructure.Data;
 
 public class ApplicationDbContext : DbContext
 {

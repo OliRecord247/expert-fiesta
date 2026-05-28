@@ -1,4 +1,4 @@
-﻿using expert_fiesta.Application.Domain;
+﻿using expert_fiesta.Domain;
 
 namespace expert_fiesta.Application.Services;
 

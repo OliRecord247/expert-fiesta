@@ -1,4 +1,4 @@
-﻿namespace expert_fiesta.Application.Domain;
+﻿namespace expert_fiesta.Domain;
 
 public class Game
 {

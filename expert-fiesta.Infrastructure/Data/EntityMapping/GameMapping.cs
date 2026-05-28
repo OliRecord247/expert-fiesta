@@ -1,16 +1,16 @@
-﻿using expert_fiesta.Application.Data.ValueConverters;
-using expert_fiesta.Application.Domain;
+﻿using expert_fiesta.Domain;
+using expert_fiesta.Infrastructure.Data.ValueConverters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace expert_fiesta.Application.Data.EntityMapping;
+namespace expert_fiesta.Infrastructure.Data.EntityMapping;
 
 public class GameMapping : IEntityTypeConfiguration<Game>
 {
     public void Configure(EntityTypeBuilder<Game> builder)
     {
         builder
-            .ToTable("Games")
+            .ToTable("games")
             .HasKey(g => g.Id);
 
         builder

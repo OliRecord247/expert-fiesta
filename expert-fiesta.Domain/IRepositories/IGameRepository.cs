@@ -1,6 +1,4 @@
-﻿using expert_fiesta.Application.Domain;
-
-namespace expert_fiesta.Application.Repositories;
+﻿namespace expert_fiesta.Domain.IRepositories;
 
 public interface IGameRepository
 {

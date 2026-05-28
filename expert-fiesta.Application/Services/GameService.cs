@@ -1,5 +1,5 @@
-﻿using expert_fiesta.Application.Domain;
-using expert_fiesta.Application.Repositories;
+﻿using expert_fiesta.Domain;
+using expert_fiesta.Domain.IRepositories;
 using FluentValidation;
 
 namespace expert_fiesta.Application.Services;
